@@ -1,0 +1,75 @@
+#N canvas 628 61 1302 992 10;
+#X obj 45 18 receive fromSystem;
+#X obj 45 48 list trim;
+#X obj 45 77 route /hid;
+#X obj 45 112 route 0;
+#X msg 154 495 list /test_text \$1;
+#X msg 185 474 list /test_text2 \$1;
+#X obj 160 2 vsl 25 52 -1 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X floatatom 167 -37 5 0 0 0 - - -, f 5;
+#X msg 6 -44 0 AXIS_X \$1;
+#X msg 72 276 list /test_num \$1;
+#X obj 72 239 list length;
+#X floatatom 112 256 5 0 0 0 - - -, f 5;
+#X obj 38 384 list split 1;
+#X obj 72 410 list split 1, f 14;
+#X obj 38 497 t s;
+#X obj 112 434 list split 1;
+#X msg 211 452 list /test_text3 \$1;
+#X obj 201 12 tgl 40 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X msg 10 -22 0 KEYCODE_BUTTON_A \$1;
+#X obj 45 206 t a a;
+#X obj 72 301 send toGUI;
+#X obj 36 599 send toGUI;
+#X floatatom 201 -40 5 0 0 0 - - -, f 5;
+#X obj 345 303 send toGUI;
+#X text 257 109 4) The value (usually -1 to 1 for axes \, 0 and 1 for
+buttons);
+#X text 257 83 3) The label associated with the axis/button \, e.g.
+"AXIS_X";
+#X text 257 48 2) device index "0" (MobMuPlat currently supports only
+one device at a time \, this may change in the future);
+#X text 257 -20 A HID message is sent for every button press or axis
+value change. The format of HID messages is:;
+#X text 257 24 1) address "/hid";
+#X msg 345 278 list /test_num2 \$1;
+#X msg 112 521 list /test_label3 \$1;
+#X msg 72 545 list /test_label2 \$1;
+#X msg 37 570 list /test_label1 \$1;
+#X obj 72 497 t s;
+#X obj 112 497 t s;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 21 0;
+#X connect 5 0 21 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 9 0 20 0;
+#X connect 10 0 11 0;
+#X connect 10 0 9 0;
+#X connect 12 0 14 0;
+#X connect 12 0 16 0;
+#X connect 12 1 13 0;
+#X connect 13 0 33 0;
+#X connect 13 0 4 0;
+#X connect 13 1 15 0;
+#X connect 14 0 32 0;
+#X connect 15 0 34 0;
+#X connect 15 0 5 0;
+#X connect 16 0 21 0;
+#X connect 17 0 22 0;
+#X connect 18 0 3 0;
+#X connect 19 0 12 0;
+#X connect 19 1 10 0;
+#X connect 22 0 18 0;
+#X connect 29 0 23 0;
+#X connect 30 0 21 0;
+#X connect 31 0 21 0;
+#X connect 32 0 21 0;
+#X connect 33 0 31 0;
+#X connect 34 0 30 0;
